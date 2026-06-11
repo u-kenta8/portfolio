@@ -1,26 +1,88 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --paper: #faf6ee;
+  --ink: #1a1715;
+  --ink-soft: #3a3530;
+  --rule: #e6dfd1;
+  --accent: #2b3a55;
+  --accent-soft: #4a5d7f;
+  --vermillion: #c84630;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --paper: #0d0b08;
+    --ink: #f3ece0;
+    --ink-soft: #b8ad9c;
+    --rule: #2a2520;
+    --accent: #93acd4;
+    --accent-soft: #6b89b9;
+    --vermillion: #e07560;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@theme inline {
+  --color-paper: var(--paper);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-rule: var(--rule);
+  --color-accent: var(--accent);
+  --color-vermillion: var(--vermillion);
+  --font-sans: var(--font-geist-sans);
 }
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 64px;
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-geist-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.font-display {
+  font-family: "Hiragino Mincho ProN", "YuMincho", "Yu Mincho", "MS Mincho", Georgia, "Times New Roman", serif;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+}
+
+.font-jp {
+  font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", "YuGothic", "Meiryo", "Noto Sans JP", sans-serif;
+  font-feature-settings: "palt";
+}
+
+/* Subtle seigaiha (青海波) wave pattern — very faint, used as hero background */
+.seigaiha {
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='80' height='40' viewBox='0 0 80 40'><g fill='none' stroke='%232b3a55' stroke-width='0.6' opacity='0.08'><path d='M0 40 A 20 20 0 0 1 40 40 A 20 20 0 0 1 80 40'/><path d='M-40 40 A 20 20 0 0 1 0 40 A 20 20 0 0 1 40 40 A 20 20 0 0 1 80 40 A 20 20 0 0 1 120 40'/><path d='M0 30 A 14 14 0 0 1 28 30'/><path d='M40 30 A 14 14 0 0 1 68 30'/><path d='M-40 30 A 14 14 0 0 1 -12 30'/><path d='M80 30 A 14 14 0 0 1 108 30'/></g></svg>");
+  background-repeat: repeat;
+}
+
+@media (prefers-color-scheme: dark) {
+  .seigaiha {
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='80' height='40' viewBox='0 0 80 40'><g fill='none' stroke='%2393acd4' stroke-width='0.6' opacity='0.10'><path d='M0 40 A 20 20 0 0 1 40 40 A 20 20 0 0 1 80 40'/><path d='M-40 40 A 20 20 0 0 1 0 40 A 20 20 0 0 1 40 40 A 20 20 0 0 1 80 40 A 20 20 0 0 1 120 40'/><path d='M0 30 A 14 14 0 0 1 28 30'/><path d='M40 30 A 14 14 0 0 1 68 30'/><path d='M-40 30 A 14 14 0 0 1 -12 30'/><path d='M80 30 A 14 14 0 0 1 108 30'/></g></svg>");
+  }
+}
+
+.vertical-jp {
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+}
+
+/* Fade-in on load for hero */
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-up {
+  animation: fade-up 0.8s ease-out both;
+}
+
+.fade-up-delay-1 { animation-delay: 0.1s; }
+.fade-up-delay-2 { animation-delay: 0.2s; }
+.fade-up-delay-3 { animation-delay: 0.3s; }

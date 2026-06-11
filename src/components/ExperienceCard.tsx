@@ -20,31 +20,40 @@ export function ExperienceCard({
   stack,
 }: Props) {
   return (
-    <article className="rounded-2xl border border-zinc-200 bg-white p-6 transition hover:border-zinc-300 dark:border-zinc-800 dark:bg-zinc-900 dark:hover:border-zinc-700">
-      <header className="mb-3 flex flex-wrap items-baseline justify-between gap-2">
+    <article className="group relative overflow-hidden rounded-2xl border border-[var(--rule)] bg-paper/40 p-7 backdrop-blur-sm transition hover:border-[var(--accent)]/40 hover:shadow-[0_10px_40px_-15px_rgba(43,58,85,0.25)]">
+      <div className="absolute left-0 top-0 h-full w-[3px] bg-gradient-to-b from-[var(--accent)] via-[var(--accent)]/40 to-transparent opacity-60" />
+
+      <header className="mb-4 flex flex-wrap items-baseline justify-between gap-2">
         <div>
-          <h3 className="text-lg font-semibold">{role}</h3>
-          <p className="text-zinc-600 dark:text-zinc-400">
+          <h3 className="font-display text-xl tracking-tight">{role}</h3>
+          <p className="mt-1 text-[var(--ink-soft)]">
             <a
               href={companyUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="underline decoration-zinc-300 underline-offset-2 transition hover:decoration-zinc-700 dark:decoration-zinc-700 dark:hover:decoration-zinc-300"
+              className="font-medium text-[var(--accent)] underline decoration-[var(--accent)]/30 underline-offset-4 transition hover:decoration-[var(--accent)]"
             >
               {company}
-            </a>{" "}
-            · {location}
+            </a>
+            <span className="mx-2 text-[var(--rule)]">·</span>
+            {location}
           </p>
         </div>
-        <p className="text-sm text-zinc-500 dark:text-zinc-400">{period}</p>
+        <p className="font-jp text-sm text-[var(--ink-soft)]">{period}</p>
       </header>
 
-      <p className="mb-4 italic text-zinc-700 dark:text-zinc-300">{lede}</p>
+      <p className="mb-5 italic leading-relaxed text-[var(--ink-soft)]">{lede}</p>
 
-      <ul className="mb-4 space-y-2">
+      <ul className="mb-5 space-y-2.5">
         {bullets.map((b) => (
-          <li key={b} className="flex gap-3 text-sm leading-relaxed text-zinc-700 dark:text-zinc-300">
-            <span aria-hidden className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-zinc-400 dark:bg-zinc-600" />
+          <li
+            key={b}
+            className="flex gap-3 text-[15px] leading-relaxed text-ink/85"
+          >
+            <span
+              aria-hidden
+              className="mt-2 h-1.5 w-1.5 shrink-0 rotate-45 bg-[var(--accent)]/60"
+            />
             <span>{b}</span>
           </li>
         ))}
@@ -54,7 +63,7 @@ export function ExperienceCard({
         {stack.map((tech) => (
           <span
             key={tech}
-            className="rounded-full bg-zinc-100 px-2.5 py-0.5 text-xs text-zinc-700 dark:bg-zinc-800 dark:text-zinc-300"
+            className="rounded-full border border-[var(--rule)] bg-paper/60 px-3 py-1 text-xs font-medium text-[var(--ink-soft)] transition hover:border-[var(--accent)]/40 hover:text-[var(--accent)]"
           >
             {tech}
           </span>

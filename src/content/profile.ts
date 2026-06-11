@@ -1,12 +1,23 @@
 export const profile = {
   name: "Kenta Uneoka",
+  nameJp: "ウネオカ ケンタ",
   tagline: "I build production-grade web platforms with Go, Next.js, and TypeScript.",
+  taglineJp: "Go・Next.js・TypeScript で、堅実なプロダクトを作る。",
   location: "Osaka, Japan (UTC+9)",
   status: "Open to fully remote roles worldwide",
   email: "higasitora415@gmail.com",
   github: "https://github.com/u-kenta8",
   linkedin: "https://www.linkedin.com/in/uneoka-kenta-b138263a0/",
   resumeUrl: "https://github.com/u-kenta8/remote-compass/blob/main/docs/resume.md",
+
+  labels: {
+    about: { en: "About", jp: "自己紹介" },
+    skills: { en: "Skills", jp: "技術スタック" },
+    experience: { en: "Experience", jp: "経歴" },
+    projects: { en: "Projects", jp: "制作物" },
+    education: { en: "Education", jp: "学歴" },
+    contact: { en: "Contact", jp: "お問い合わせ" },
+  },
 
   about: [
     "Senior fullstack engineer with 10+ years shipping production B2B SaaS and e-commerce platforms in Japan. Comfortable owning features end-to-end across Go, Node.js, TypeScript, React, and Next.js — from database schema and API design through to the UI.",
@@ -62,6 +73,7 @@ export const profile = {
 
   education: {
     school: "Tsinghua University",
+    schoolJp: "清華大学",
     location: "Beijing",
     degree: "Master of Science, Computer Science",
     year: "2013",

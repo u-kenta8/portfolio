@@ -6,18 +6,42 @@ type Props = {
   labelEn: string;
   labelJp: string;
   title: string;
+  tone?: "default" | "tint" | "deep" | "pattern";
   children: React.ReactNode;
 };
 
 const KANJI_NUMS = ["一", "二", "三", "四", "五", "六", "七", "八", "九"];
 
-export function Section({ id, index, labelEn, labelJp, title, children }: Props) {
+const TONE_BG: Record<NonNullable<Props["tone"]>, string> = {
+  default: "",
+  tint: "bg-[var(--paper-tint)]",
+  deep: "bg-[var(--paper-deep)]",
+  pattern: "asanoha",
+};
+
+export function Section({
+  id,
+  index,
+  labelEn,
+  labelJp,
+  title,
+  tone = "default",
+  children,
+}: Props) {
   const num = String(index).padStart(2, "0");
   const kanji = KANJI_NUMS[index - 1] ?? "";
 
   return (
-    <section id={id} className="relative py-20 sm:py-28">
-      <div className="mx-auto w-full max-w-3xl px-6">
+    <section id={id} className={`relative py-20 sm:py-28 ${TONE_BG[tone]}`}>
+      {/* Subtle left edge accent line for some sections */}
+      {tone !== "default" && (
+        <div
+          aria-hidden
+          className="pointer-events-none absolute left-0 top-0 h-full w-[2px] bg-gradient-to-b from-transparent via-[var(--accent)]/30 to-transparent"
+        />
+      )}
+
+      <div className="relative mx-auto w-full max-w-3xl px-6">
         <Reveal>
           <div className="mb-12 flex items-center gap-5">
             <div className="flex items-baseline gap-2 font-mono text-xs text-[var(--ink-soft)]">

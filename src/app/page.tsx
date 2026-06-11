@@ -5,6 +5,7 @@ import { ProjectCard } from "@/components/ProjectCard";
 import { SkillGroup } from "@/components/SkillGroup";
 import { JsonLd } from "@/components/JsonLd";
 import { Nav } from "@/components/Nav";
+import { Enso } from "@/components/Enso";
 
 export default function Home() {
   return (
@@ -29,10 +30,35 @@ function Hero() {
       id="top"
       className="relative overflow-hidden border-b border-[var(--rule)]"
     >
-      <div className="seigaiha absolute inset-0 opacity-50" aria-hidden />
+      {/* Layer 1: drifting warm radial glow */}
+      <div
+        className="animate-drift absolute -left-32 -top-32 h-[480px] w-[480px] rounded-full"
+        aria-hidden
+        style={{
+          background:
+            "radial-gradient(circle, var(--gold-soft) 0%, transparent 70%)",
+        }}
+      />
+      {/* Layer 2: drifting indigo radial glow */}
+      <div
+        className="animate-drift-2 absolute -right-32 top-1/3 h-[520px] w-[520px] rounded-full"
+        aria-hidden
+        style={{
+          background:
+            "radial-gradient(circle, var(--accent-glow) 0%, transparent 70%)",
+        }}
+      />
+      {/* Layer 3: seigaiha wave pattern */}
+      <div className="seigaiha absolute inset-0 opacity-40" aria-hidden />
+      {/* Layer 4: soft fade to page */}
       <div
         className="absolute inset-0 bg-gradient-to-b from-transparent via-paper/30 to-paper"
         aria-hidden
+      />
+      {/* Layer 5: Enso ink circle decoration */}
+      <Enso
+        className="animate-ink-fade pointer-events-none absolute -right-16 -top-12 text-[var(--accent)]/30 sm:-right-4 sm:-top-4"
+        size={360}
       />
 
       <div className="relative mx-auto w-full max-w-3xl px-6 pb-28 pt-20 sm:pb-36 sm:pt-32">
@@ -179,6 +205,7 @@ function About() {
       labelEn={profile.labels.about.en}
       labelJp={profile.labels.about.jp}
       title="What I do, and what I'm looking for"
+      tone="tint"
     >
       <div className="space-y-5 text-[17px] leading-relaxed text-ink/85">
         {profile.about.map((p, i) => (
@@ -217,6 +244,7 @@ function Experience() {
       labelEn={profile.labels.experience.en}
       labelJp={profile.labels.experience.jp}
       title="Where I've shipped production work"
+      tone="tint"
     >
       <div className="space-y-5">
         {profile.experience.map((role) => (
@@ -254,6 +282,7 @@ function Education() {
       labelEn={profile.labels.education.en}
       labelJp={profile.labels.education.jp}
       title="Where I studied"
+      tone="tint"
     >
       <div className="rounded-2xl border border-[var(--rule)] bg-paper/40 p-7 backdrop-blur-sm">
         <p className="font-display text-lg">{degree}</p>

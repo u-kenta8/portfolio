@@ -133,6 +133,139 @@ body > * {
   font-feature-settings: "palt";
 }
 
+/* Reading typography for blog posts */
+.prose-post {
+  color: var(--ink);
+  font-size: 17px;
+  line-height: 1.75;
+  max-width: 68ch;
+}
+
+.prose-post .lede {
+  font-size: 19px;
+  color: var(--ink-soft);
+  margin-bottom: 2rem;
+}
+
+.prose-post p {
+  margin: 1rem 0;
+}
+
+.prose-post h2 {
+  font-family: "Hiragino Mincho ProN", "YuMincho", "Yu Mincho", Georgia, serif;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  font-size: 1.75rem;
+  line-height: 1.25;
+  margin: 3rem 0 1rem;
+  color: var(--ink);
+}
+
+.prose-post h3 {
+  font-family: "Hiragino Mincho ProN", "YuMincho", "Yu Mincho", Georgia, serif;
+  font-weight: 600;
+  font-size: 1.35rem;
+  margin: 2.25rem 0 0.5rem;
+}
+
+.prose-post a {
+  color: var(--accent);
+  border-bottom: 1px solid color-mix(in oklab, var(--accent) 35%, transparent);
+  text-decoration: none;
+  transition: border-color 0.15s ease;
+}
+
+.prose-post a:hover {
+  border-bottom-color: var(--accent);
+}
+
+.prose-post strong {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.prose-post em {
+  font-style: italic;
+}
+
+.prose-post code {
+  font-family: var(--font-geist-mono), ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.9em;
+  background: color-mix(in oklab, var(--accent) 8%, var(--paper-deep));
+  color: var(--accent);
+  padding: 1px 6px;
+  border-radius: 4px;
+}
+
+.prose-post pre {
+  background: color-mix(in oklab, var(--ink) 92%, var(--accent));
+  color: color-mix(in oklab, var(--paper) 85%, transparent);
+  padding: 1.25rem 1.5rem;
+  border-radius: 12px;
+  overflow-x: auto;
+  font-size: 13.5px;
+  line-height: 1.55;
+  margin: 1.5rem 0;
+  border: 1px solid color-mix(in oklab, var(--ink) 80%, transparent);
+}
+
+.prose-post pre code {
+  background: transparent;
+  color: inherit;
+  padding: 0;
+  font-size: inherit;
+}
+
+.prose-post ul,
+.prose-post ol {
+  margin: 1rem 0;
+  padding-left: 1.5rem;
+}
+
+.prose-post ul {
+  list-style: none;
+}
+
+.prose-post ul > li {
+  position: relative;
+  padding-left: 1.25rem;
+  margin: 0.5rem 0;
+}
+
+.prose-post ul > li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.65em;
+  width: 6px;
+  height: 6px;
+  transform: rotate(45deg);
+  background: color-mix(in oklab, var(--accent) 60%, transparent);
+}
+
+.prose-post ol > li {
+  margin: 0.5rem 0;
+  padding-left: 0.5rem;
+}
+
+.prose-post ol {
+  list-style-type: decimal;
+  list-style-position: outside;
+}
+
+.prose-post ol::marker {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.prose-post blockquote {
+  border-left: 3px solid var(--accent);
+  padding-left: 1.25rem;
+  margin: 1.5rem 0;
+  color: var(--ink-soft);
+  font-style: italic;
+}
+
 /* Seigaiha (青海波) wave pattern — refined, indigo-tinted */
 .seigaiha {
   background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='80' height='40' viewBox='0 0 80 40'><g fill='none' stroke='%232b3a55' stroke-width='0.7' opacity='0.12'><path d='M0 40 A 20 20 0 0 1 40 40 A 20 20 0 0 1 80 40'/><path d='M-40 40 A 20 20 0 0 1 0 40 A 20 20 0 0 1 40 40 A 20 20 0 0 1 80 40 A 20 20 0 0 1 120 40'/><path d='M0 30 A 14 14 0 0 1 28 30'/><path d='M40 30 A 14 14 0 0 1 68 30'/><path d='M-40 30 A 14 14 0 0 1 -12 30'/><path d='M80 30 A 14 14 0 0 1 108 30'/></g></svg>");

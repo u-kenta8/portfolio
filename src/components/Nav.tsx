@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useState } from "react";
 
 const SECTIONS = [
@@ -80,6 +81,12 @@ export function Nav({ name }: { name: string }) {
               )}
             </a>
           ))}
+          <Link
+            href="/blog"
+            className="relative px-2.5 py-1 text-[var(--ink-soft)] transition hover:text-ink"
+          >
+            Blog
+          </Link>
         </div>
       </div>
       <div

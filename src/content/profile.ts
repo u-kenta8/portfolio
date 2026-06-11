@@ -22,7 +22,6 @@ export const profile = {
   about: [
     "Senior fullstack engineer with 10+ years shipping production B2B SaaS and e-commerce platforms in Japan. Comfortable owning features end-to-end across Go, Node.js, TypeScript, React, and Next.js — from database schema and API design through to the UI.",
     "Looking for remote roles where I can ship at a senior level and collaborate async-first with a global team. Available 4–6 hours overlap with EU afternoons or US early mornings.",
-    "Open to employment via contractor (gyōmu itaku) or Employer of Record (Deel, Remote.com, Oyster) arrangements — happy to work with whichever a team prefers.",
   ],
 
   skills: [

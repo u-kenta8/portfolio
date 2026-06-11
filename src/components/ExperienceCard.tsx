@@ -20,8 +20,9 @@ export function ExperienceCard({
   stack,
 }: Props) {
   return (
-    <article className="group relative overflow-hidden rounded-2xl border border-[var(--rule)] bg-paper/40 p-7 backdrop-blur-sm transition hover:border-[var(--accent)]/40 hover:shadow-[0_10px_40px_-15px_rgba(43,58,85,0.25)]">
-      <div className="absolute left-0 top-0 h-full w-[3px] bg-gradient-to-b from-[var(--accent)] via-[var(--accent)]/40 to-transparent opacity-60" />
+    <article className="group relative overflow-hidden rounded-2xl border border-[var(--rule)] bg-paper/40 p-7 backdrop-blur-sm transition-all duration-500 hover:-translate-y-0.5 hover:border-[var(--accent)]/40 hover:shadow-[0_24px_60px_-20px_rgba(43,58,85,0.25)]">
+      <div className="absolute left-0 top-0 h-full w-[3px] bg-gradient-to-b from-[var(--accent)] via-[var(--accent)]/40 to-transparent opacity-60 transition-opacity group-hover:opacity-100" />
+      <div className="pointer-events-none absolute -right-20 -top-20 h-40 w-40 rounded-full bg-[var(--accent)]/0 blur-3xl transition-all duration-700 group-hover:bg-[var(--accent)]/10" />
 
       <header className="mb-4 flex flex-wrap items-baseline justify-between gap-2">
         <div>
@@ -31,9 +32,12 @@ export function ExperienceCard({
               href={companyUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="font-medium text-[var(--accent)] underline decoration-[var(--accent)]/30 underline-offset-4 transition hover:decoration-[var(--accent)]"
+              className="relative font-medium text-[var(--accent)] transition"
             >
-              {company}
+              <span className="border-b border-[var(--accent)]/30 pb-0.5 transition group-hover:border-[var(--accent)] hover:border-[var(--accent)]">
+                {company}
+              </span>
+              <span aria-hidden className="ml-0.5">↗</span>
             </a>
             <span className="mx-2 text-[var(--rule)]">·</span>
             {location}
@@ -52,7 +56,7 @@ export function ExperienceCard({
           >
             <span
               aria-hidden
-              className="mt-2 h-1.5 w-1.5 shrink-0 rotate-45 bg-[var(--accent)]/60"
+              className="mt-2 h-1.5 w-1.5 shrink-0 rotate-45 bg-[var(--accent)]/60 transition group-hover:bg-[var(--accent)]"
             />
             <span>{b}</span>
           </li>

@@ -8,9 +8,11 @@ type Props = {
 
 export function ProjectCard({ title, summary, tech, liveUrl, repoUrl }: Props) {
   return (
-    <article className="group relative overflow-hidden rounded-2xl border border-[var(--rule)] bg-paper/40 p-7 backdrop-blur-sm transition hover:border-[var(--accent)]/40 hover:shadow-[0_10px_40px_-15px_rgba(43,58,85,0.25)]">
-      <div className="absolute right-6 top-6 text-3xl text-[var(--accent)]/15 transition group-hover:text-[var(--accent)]/30">
-        ⌘
+    <article className="group relative overflow-hidden rounded-2xl border border-[var(--rule)] bg-paper/40 p-7 backdrop-blur-sm transition-all duration-500 hover:-translate-y-0.5 hover:border-[var(--accent)]/40 hover:shadow-[0_24px_60px_-20px_rgba(43,58,85,0.25)]">
+      <div className="pointer-events-none absolute -right-20 -top-20 h-40 w-40 rounded-full bg-[var(--accent)]/0 blur-3xl transition-all duration-700 group-hover:bg-[var(--accent)]/10" />
+
+      <div className="absolute right-6 top-6 font-jp text-3xl text-[var(--accent)]/15 transition group-hover:text-[var(--accent)]/30">
+        作
       </div>
 
       <header className="mb-4">
@@ -20,17 +22,23 @@ export function ProjectCard({ title, summary, tech, liveUrl, repoUrl }: Props) {
             href={liveUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="font-medium text-[var(--accent)] underline decoration-[var(--accent)]/30 underline-offset-4 transition hover:decoration-[var(--accent)]"
+            className="group/link relative font-medium text-[var(--accent)] transition"
           >
-            Live demo ↗
+            <span className="border-b border-[var(--accent)]/40 pb-0.5 transition group-hover/link:border-[var(--accent)]">
+              Live demo
+            </span>
+            <span aria-hidden className="ml-1">↗</span>
           </a>
           <a
             href={repoUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-[var(--ink-soft)] underline decoration-[var(--rule)] underline-offset-4 transition hover:text-ink hover:decoration-[var(--ink-soft)]"
+            className="group/link relative text-[var(--ink-soft)] transition hover:text-ink"
           >
-            Source ↗
+            <span className="border-b border-[var(--rule)] pb-0.5 transition group-hover/link:border-[var(--ink-soft)]">
+              Source
+            </span>
+            <span aria-hidden className="ml-1">↗</span>
           </a>
         </div>
       </header>
